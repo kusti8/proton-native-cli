@@ -1,19 +1,15 @@
-import React, { Component } from "react"; // import from react
-
-import { AppRegistry, Window, App } from "proton-native"; // import the proton-native components
-
-class Example extends Component {
-  render() {
-    // all Components must have a render method
-    return (
-      <App>
-        {/* you must always include App around everything */}
-        <Window style={{ width: 300, height: 300 }}>
-          {/* all your other components go here*/}
-        </Window>
-      </App>
-    );
-  }
-}
+import React from "react";
+import { AppRegistry } from "proton-native";
+import Example from "./app";
 
 AppRegistry.registerComponent("example", <Example />); // and finally render your main component
+
+// ================================================================================
+// This is for hot reloading (this will be stripped off in production by webpack)
+// THIS SHOULD NOT BE CHANGED
+if (module.hot) {
+  module.hot.accept(["./app"], function() {
+    const app = require("./app")["default"];
+    AppRegistry.updateProxy(app);
+  });
+}

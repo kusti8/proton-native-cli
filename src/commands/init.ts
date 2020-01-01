@@ -39,23 +39,29 @@ export default class Init extends Base {
       version: "0.0.1",
       private: true,
       scripts: {
-        start: "node_modules/.bin/babel-node index.js",
-        build: "node_modules/.bin/babel index.js -d bin/",
+        start: "babel-node index.js",
+        dev: "webpack --mode=development ",
+        webpackRun: "babel-node dist/index.out.js",
+        build: "babel index.js -d bin/",
         pack: "electron-builder --dir",
         dist: "electron-builder"
       },
       dependencies: {
-        "proton-native": "latest"
+        "proton-native": "kusti8/proton-native#v2" // TODO: CHANGE THIS BACK
       },
       devDependencies: {
         "electron-builder": "latest",
         "@babel/cli": "latest",
         "@babel/core": "latest",
         "@babel/node": "latest",
+        "babel-loader": "latest",
         "@babel/plugin-proposal-class-properties": "latest",
         "@babel/preset-env": "latest",
         "@babel/preset-react": "latest",
-        "@babel/preset-stage-0": "latest"
+        "@babel/preset-stage-0": "latest",
+        webpack: "latest",
+        "webpack-cli": "latest",
+        "webpack-node-externals": "latest"
       },
       build: {
         protonNodeVersion: "current",
