@@ -29,7 +29,6 @@ USAGE
 # Commands
 <!-- commands -->
 * [`proton-native help [COMMAND]`](#proton-native-help-command)
-* [`proton-native hot [FILE]`](#proton-native-hot-file)
 * [`proton-native init NAME`](#proton-native-init-name)
 
 ## `proton-native help [COMMAND]`
@@ -48,22 +47,6 @@ OPTIONS
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.3/src/commands/help.ts)_
-
-## `proton-native hot [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ proton-native hot [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-```
-
-_See code: [src/commands/hot.ts](https://github.com/kusti8/proton-native-cli/blob/v0.0.1/src/commands/hot.ts)_
 
 ## `proton-native init NAME`
 
