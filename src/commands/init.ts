@@ -45,7 +45,7 @@ export default class Init extends Base {
         build: "babel index.js app.js -d bin/"
       },
       dependencies: {
-        "proton-native": "kusti8/proton-native#v2" // TODO: CHANGE THIS BACK
+        "proton-native": "latest" // TODO: CHANGE THIS BACK
       },
       devDependencies: {
         "@babel/cli": "latest",
