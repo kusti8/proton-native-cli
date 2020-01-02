@@ -91,23 +91,26 @@ export default class Init extends Base {
     if (!online) {
       this.error("Looks like you are offline.");
     } else {
-      this.installDeps(flags.verbose)
-        .then(() => {
-          process.chdir("..");
-          this.log();
-          this.printSuccessMessage(rootPath, projectName);
-        })
-        .catch((error: string) => {
-          //print error message
-          this.error(error);
-        });
+      await this.installDeps(
+        Object.keys(json.dependencies),
+        "--save",
+        flags.verbose
+      );
+      await this.installDeps(
+        Object.keys(json.devDependencies),
+        "--save-dev",
+        flags.verbose
+      );
+      process.chdir("..");
+      this.log();
+      this.printSuccessMessage(rootPath, projectName);
     }
   }
 
-  installDeps(verbose: boolean) {
+  installDeps(deps: string[], saveType: string, verbose: boolean) {
     // Install dependecies
     const command = `npm${runningOnWindows ? ".cmd" : ""}`; // Supporting only npm initially, yarn will come in the future(maybe)
-    const args = ["install"];
+    const args = ["install", saveType].concat(deps);
     if (verbose) {
       args.push("--verbose");
     }
