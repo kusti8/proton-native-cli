@@ -1,7 +1,7 @@
 {
   "name": "proton-native-cli",
   "description": "Manage your Proton Native apps.",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "author": "Gustav Hansen <hello@kusti8.com>",
   "bin": {
     "proton-native": "./bin/run"
@@ -12,6 +12,7 @@
     "@oclif/config": "^1.13.3",
     "@oclif/plugin-help": "^2.2.3",
     "ncp": "^2.0.0",
+    "semver": "^7.1.1",
     "tslib": "^1.10.0"
   },
   "devDependencies": {

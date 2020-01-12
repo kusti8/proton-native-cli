@@ -5,6 +5,7 @@ const path = require("path");
 const fs = require("fs");
 const os = require("os");
 const ncp = require("ncp").ncp;
+const semver = require("semver");
 const { exec } = require("child_process");
 const runningOnWindows = os.platform() === "win32";
 
@@ -28,6 +29,20 @@ export default class Init extends Base {
 
     const rootPath = path.resolve(args.name);
     const projectName = path.basename(rootPath);
+
+    if (
+      os.platform() == "darwin" &&
+      semver.satisfies(os.version(), ">=12.13.1 <13.0.0 || >=13.0.1")
+    ) {
+      this.warn(
+        "Running on Mac with Node version >=12.13.1 or >=13.0.1 will not work due to a bug in Node.js. Please change to a version beneath 12.13.1, like 12.12.0."
+      );
+      this.log();
+      this.log();
+      this.log();
+      this.log();
+      this.log();
+    }
 
     this.log(`Creating a new Proton Native app on ${rootPath}`);
     this.log();
