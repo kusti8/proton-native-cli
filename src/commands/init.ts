@@ -24,16 +24,12 @@ export default class Init extends Base {
 
   static description = "Create a new Proton Native app.";
 
-  async run() {
-    const { args, flags } = this.parse(Init);
-
-    const rootPath = path.resolve(args.name);
-    const projectName = path.basename(rootPath);
-
+  macWarning() {
     if (
       os.platform() == "darwin" &&
       semver.satisfies(process.version, ">=12.13.1 <13.0.0 || >=13.0.1")
     ) {
+      this.log();
       this.warn(
         "Running on Mac with Node version >=12.13.1 or >=13.0.1 will not work due to a bug in Node.js. Please change to a version beneath 12.13.1, like 12.12.0."
       );
@@ -43,6 +39,15 @@ export default class Init extends Base {
       this.log();
       this.log();
     }
+  }
+
+  async run() {
+    const { args, flags } = this.parse(Init);
+
+    const rootPath = path.resolve(args.name);
+    const projectName = path.basename(rootPath);
+
+    this.macWarning();
 
     this.log(`Creating a new Proton Native app on ${rootPath}`);
     this.log();
@@ -119,6 +124,7 @@ export default class Init extends Base {
       process.chdir("..");
       this.log();
       this.printSuccessMessage(rootPath, projectName);
+      this.macWarning();
     }
   }
 
