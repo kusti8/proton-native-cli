@@ -32,7 +32,7 @@ export default class Init extends Base {
 
     if (
       os.platform() == "darwin" &&
-      semver.satisfies(os.version(), ">=12.13.1 <13.0.0 || >=13.0.1")
+      semver.satisfies(process.version, ">=12.13.1 <13.0.0 || >=13.0.1")
     ) {
       this.warn(
         "Running on Mac with Node version >=12.13.1 or >=13.0.1 will not work due to a bug in Node.js. Please change to a version beneath 12.13.1, like 12.12.0."

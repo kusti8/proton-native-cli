@@ -1,7 +1,7 @@
 {
   "name": "proton-native-cli",
   "description": "Manage your Proton Native apps.",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "author": "Gustav Hansen <hello@kusti8.com>",
   "bin": {
     "proton-native": "./bin/run"
