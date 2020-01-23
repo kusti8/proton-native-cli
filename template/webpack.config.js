@@ -44,7 +44,9 @@ module.exports = (env, argv) => {
             if (instance) {
               return;
             }
-            instance = spawn("npm", ["run", "webpackRun"]);
+            instance = spawn("npm", ["run", "webpackRun"], {
+							shell: true
+						});
             instance.stdout.on("data", function(data) {
               console.log(data.toString());
             });
