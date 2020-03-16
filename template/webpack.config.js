@@ -44,7 +44,7 @@ module.exports = (env, argv) => {
             if (instance) {
               return;
             }
-            instance = spawn("npm", ["run", "webpackRun"]);
+            instance = spawn(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', ["run", "webpackRun"]);
             instance.stdout.on("data", function(data) {
               console.log(data.toString());
             });
