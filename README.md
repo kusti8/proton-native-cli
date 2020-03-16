@@ -19,7 +19,7 @@ $ npm install -g proton-native-cli
 $ proton-native COMMAND
 running command...
 $ proton-native (-v|--version|version)
-proton-native-cli/0.0.7 linux-x64 node-v13.0.0
+proton-native-cli/0.0.8 linux-x64 node-v13.0.0
 $ proton-native --help [COMMAND]
 USAGE
   $ proton-native COMMAND
@@ -63,5 +63,5 @@ OPTIONS
   --verbose
 ```
 
-_See code: [src/commands/init.ts](https://github.com/kusti8/proton-native-cli/blob/v0.0.7/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/kusti8/proton-native-cli/blob/v0.0.8/src/commands/init.ts)_
 <!-- commandsstop -->
