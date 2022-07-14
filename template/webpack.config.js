@@ -66,7 +66,7 @@ module.exports = (env, argv) => {
     },
     externals: [
       nodeExternals({
-        whitelist: ["webpack/hot/dev-server", "webpack/hot/poll?100"]
+        allowlist: ["webpack/hot/dev-server", "webpack/hot/poll?100"]
       })
     ]
   };
